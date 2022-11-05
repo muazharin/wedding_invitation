@@ -135,7 +135,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                         <h2>Hello!</h2>
-                        <h3><?= date("M d, Y"); ?></h3>
+                        <h3><?= $name; ?></h3>
                         <p>We invited you to celebrate our wedding</p>
                     </div>
                 </div>
@@ -349,46 +349,6 @@
                                             <figure>
                                                 <img src="<?= base_url();?>assets/images/quran.jpg" alt="user">
                                             </figure>
-                                            <span> QS Az-Zariyat: 49, <a href="#" class="twitter">Al-Quran</a></span>
-                                            <blockquote>
-                                                <p>“Dan segala sesuatu Kami Ciptakan Berpasang-pasangan supaya kamu
-                                                    mengingat kebesaran Allah.”</p>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimony-slide active text-center">
-                                            <figure>
-                                                <img src="<?= base_url();?>assets/images/quran.jpg" alt="user">
-                                            </figure>
-                                            <span>QS An-Nisa: 1, <a href="#" class="twitter">Al-Quran</a></span>
-                                            <blockquote>
-                                                <p>“Hai manusia, bertakwalah kepada Tuhan-mu Yang menciptakan kamu dari
-                                                    satu jiwa dan darinya Dia menciptakan jodohnya, dan
-                                                    mengembang-biakan dari keduanya banyak laki-laki dan perempuan; dan
-                                                    bertakwalah kepada Allah SWT yang dengan nama-Nya kamu saling
-                                                    bertanya, terutama mengenai hubungan tali kekerabatan. Sesungguhnya
-                                                    Allah SWT adalah pengawas atas kamu.” </p>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimony-slide active text-center">
-                                            <figure>
-                                                <img src="<?= base_url();?>assets/images/quran.jpg" alt="user">
-                                            </figure>
-                                            <span>QS Al-Qiyamah: 39, <a href="#" class="twitter">Al-Quran</a></span>
-                                            <blockquote>
-                                                <p>“Lalu Allah menjadikan daripadanya sepasang: laki-laki dan
-                                                    perempuan.”</p>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimony-slide active text-center">
-                                            <figure>
-                                                <img src="<?= base_url();?>assets/images/quran.jpg" alt="user">
-                                            </figure>
                                             <span>QS An-Nur: 32, <a href="#" class="twitter">Al-Quran</a></span>
                                             <blockquote>
                                                 <p>“Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan
@@ -396,36 +356,6 @@
                                                     lelaki dan hamba-hamba sahayamu yang perempuan. jika mereka miskin,
                                                     Allah akan memampukan mereka dengan kurnia-Nya. dan Allah Maha Luas
                                                     (pemberian-Nya) lagi Maha mengetahui.”</p>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimony-slide active text-center">
-                                            <figure>
-                                                <img src="<?= base_url();?>assets/images/quran.jpg" alt="user">
-                                            </figure>
-                                            <span>QS An-Nisa: 21, <a href="#" class="twitter">Al-Quran</a></span>
-                                            <blockquote>
-                                                <p>“Bagaimana kamu akan mengambilnya kembali, padahal sebagian kamu
-                                                    telah bergaul (bercampur) dengan yang lain sebagai suami-isteri. Dan
-                                                    mereka (isteri-isterimu) telah mengambil dari kamu perjanjian yang
-                                                    kuat.”</p>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testimony-slide active text-center">
-                                            <figure>
-                                                <img src="<?= base_url();?>assets/images/quran.jpg" alt="user">
-                                            </figure>
-                                            <span>QS Al-Hujurat: 13, <a href="#" class="twitter">Al-Quran</a></span>
-                                            <blockquote>
-                                                <p>“Hai manusia, sesungguhnya Kami menciptakan kamu dari seorang
-                                                    laki-laki dan seorang perempuan dan menjadikan kamu berbangsa-bangsa
-                                                    dan bersuku-suku supaya kamu saling kenal-mengenal. Sesungguhnya
-                                                    orang yang paling mulia diantara kamu disisi Allah ialah orang yang
-                                                    paling takwa di antara kamu. Sesungguhnya Allah Maha Mengetahui lagi
-                                                    Maha Mengenal.”</p>
                                             </blockquote>
                                         </div>
                                     </div>
@@ -484,22 +414,44 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Name</label>
-                                    <input type="name" class="form-control" id="name" placeholder="Name">
+                                    <input type="name" class="form-control" id="name" placeholder="Name" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="comment" class="sr-only">Wishes</label>
-                                    <textarea class="form-control" name="wishes" id="wishes" cols="30"
-                                        rows="10">Your Wishes</textarea>
+                                    <textarea class="form-control" name="wishes" id="wishes" cols="30" required
+                                        rows="10"></textarea>
                                     <!-- <input type="text" class="form-control" id="comment" placeholder="Your Wishes"> -->
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <button type="submit" class="btn btn-default btn-block">Send</button>
+                                <button type="button" onclick="sendWishes()"
+                                    class="btn btn-default btn-block">Send</button>
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="fh5co-services" class="">
+            <div class="container">
+                <div class="row animate-box">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                        <h2>Your Wishes</h2>
+                        <p>Thanks for your wishes!</p>
+                    </div>
+                </div>
+                <div id="listWishes" class="row">
+                    <!-- <div class="col-md-12 animate-box">
+                        <span>Name</span> &nbsp;<a href=""><i class="icon-check"></i></a><br>
+                        <a href=""><i class="icon-clock"></i></a> &nbsp;<?= date('h:i:s');?>&nbsp;<a href=""><i
+                                class="icon-calendar"></i></a>&nbsp;<?= date("d M Y");?><br>
+                        <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptatum odio aperiam
+                            cupiditate, voluptatibus distinctio, alias similique facere tempora in, blanditiis commodi
+                            incidunt a minus molestias sequi possimus. Accusantium, alias.</span><br>
+                        <hr>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -510,21 +462,14 @@
                 <div class="row copyright">
                     <div class="col-md-12 text-center">
                         <p>
-                            <small class="block">&copy; 2022 Muazharin Alfan <i class="icon-heart"></i> Juwita Rizqi
+                            <small class="block">&copy; 2022 Muazharin Alfan <a href=""> <i class="icon-heart"></i></a>
+                                Juwita Rizqi
                                 Zahwa. All Rights
                                 Reserved.</small>
                             <!-- <small class="block">Designed by <a href="http://freehtml5.co/"
                                     target="_blank">FREEHTML5.co</a> Demo Images: <a href="http://unsplash.co/"
                                     target="_blank">Unsplash</a></small> -->
                         </p>
-                        <!-- <p>
-                        <ul class="fh5co-social-icons">
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                        </ul>
-                        </p> -->
                     </div>
                 </div>
 
@@ -561,13 +506,14 @@
     <script src="<?= base_url();?>assets/js/main.js"></script>
 
     <script>
-    var d = new Date(new Date("Nov 13, 2022 09:00:00").getTime() + 2000);
+    var d = new Date(new Date("Nov 13, 2022 09:00:00").getTime());
 
     // default example
     simplyCountdown('.simply-countdown-one', {
         year: d.getFullYear(),
         month: d.getMonth() + 1,
-        day: d.getDate()
+        day: d.getDate(),
+        hours: d.getHours() + 7,
     });
 
     //jQuery example
@@ -575,10 +521,80 @@
         year: d.getFullYear(),
         month: d.getMonth() + 1,
         day: d.getDate(),
+        hours: d.getHours() + 7,
         enableUtc: true
     });
+
+    $(document).ready(function() {
+        listWishes();
+    });
+
+    function listWishes() {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('wedding/list_wishes'); ?>",
+            dataType: "JSON",
+            beforeSend: function() {},
+            cache: false,
+            data: '',
+            success: function(data) {
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August",
+                    "September", "October", "November", "December"
+                ];
+                $('#listWishes').empty();
+                $.each(data, function(index) {
+                    var date = new Date(data[index].date);
+                    var info_date1 = date.getHours() + ":" + date.getMinutes() + ":" + date
+                        .getSeconds();
+                    var info_date2 = date.getDate() + " " + months[date.getMonth()] + ":" + date
+                        .getFullYear();
+                    var listWishes = '<div class="col-md-12"><span>' + data[index].name +
+                        '</span> &nbsp;<a href=""><i class="icon-check"></i></a><br><a href=""><i class="icon-clock"></i></a> &nbsp;' +
+                        info_date1 + '&nbsp;<a href=""><i class="icon-calendar"></i></a>&nbsp;' +
+                        info_date2 + '<br><span>' + data[index].wishes + '</span><br><hr></div>';
+                    console.log(listWishes);
+                    $('#listWishes').append(listWishes);
+                });
+            },
+            error: function(request) {
+                console.log(request.responseText);
+            }
+        });
+    }
+
+    function sendWishes() {
+        var name = $("#name").val();
+        var wishes = $("#wishes").val();
+        if (name != "" && wishes != "") {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url('wedding/send_wishes'); ?>",
+                dataType: "JSON",
+                beforeSend: function() {},
+                cache: false,
+                data: {
+                    "name": name,
+                    "wishes": wishes,
+                },
+                success: function(data) {
+                    $("#name").val("");
+                    $("#wishes").val("");
+                    console.log("sukses");
+                },
+                error: function(request) {
+                    console.log(request.responseText);
+                }
+            });
+        }
+        // console.log("sendWishes");
+    }
     </script>
 
 </body>
+
+
+
+
+
 
 </html>

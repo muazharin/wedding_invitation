@@ -67,6 +67,13 @@
     <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+    <style>
+    .display-tc h3 {
+        color: #F14E95;
+        font-size: 30px;
+        /* font-weight: bold; */
+    }
+    </style>
 
 </head>
 
@@ -86,21 +93,20 @@
                             <div class="display-tc animate-box" data-animate-effect="fadeIn">
                                 <h1>Juwita &amp; Azhar</h1>
                                 <h2>Kepada Bapak/Ibu/Saudara(i):</h2>
-                                <h2>Muazharin Alfan, ST</h2>
-                                
-                                <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
+                                <h3><?= $name;?></h3>
+                                <h2>Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara(i) untuk menghadiri
+                                    acara pernikahan kami</h2>
+
+                                <p><a href="<?= base_url();?>open?name=<?= $name;?>" class="btn btn-default btn-sm">Buka
+                                        Undangan</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        
-        
-
-        
     </div>
-    
+
 
     <!-- jQuery -->
     <script src="<?= base_url();?>assets/js/jquery.min.js"></script>
@@ -146,5 +152,6 @@
     </script>
 
 </body>
+
 
 </html>
