@@ -130,7 +130,6 @@
                 </div>
             </div>
         </header>
-
         <div id="fh5co-couple">
             <div class="container">
                 <div class="row">
@@ -532,9 +531,9 @@
             </div>
         </footer>
     </div>
-
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    <audio id="song" src="<?= base_url();?>assets/music/biw.mp3" loop=""></audio>
+    <div class="gototop js-top active">
+        <a class="js-gotop"><i id="pin" class="icon-play"></i></a>
     </div>
 
     <!-- jQuery -->

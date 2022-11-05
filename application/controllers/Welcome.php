@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('weeding_invitation');
+		$this->load->view('weeding_envelope');
 	}
 }
