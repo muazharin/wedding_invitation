@@ -11,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Wedding Invitation - Juwita & Azhar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-    <meta name="author" content="FREEHTML5.CO" />
+    <meta name="description" content="Our Wedding Invitation" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
 
     <!-- 
 	//////////////////////////////////////////////////////
@@ -438,8 +438,8 @@
             <div class="container">
                 <div class="row animate-box">
                     <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                        <h2>Your Wishes</h2>
-                        <p>Thanks for your wishes!</p>
+                        <!--<h2>Your Wishes</h2>-->
+                        <h2>Thanks for your wishes!</h2>
                     </div>
                 </div>
                 <div id="listWishes" class="row">
@@ -504,6 +504,9 @@
     <script src="<?= base_url();?>assets/js/simplyCountdown.js"></script>
     <!-- Main -->
     <script src="<?= base_url();?>assets/js/main.js"></script>
+    <!-- Sweetalert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script>
     var d = new Date(new Date("Nov 13, 2022 09:00:00").getTime());
@@ -526,7 +529,9 @@
     });
 
     $(document).ready(function() {
+        // deleteWishes();
         listWishes();
+
     });
 
     function listWishes() {
@@ -546,11 +551,12 @@
                     var date = new Date(data[index].date);
                     var info_date1 = date.getHours() + ":" + date.getMinutes() + ":" + date
                         .getSeconds();
-                    var info_date2 = date.getDate() + " " + months[date.getMonth()] + ":" + date
+                    var info_date2 = date.getDate() + " " + months[date.getMonth()] + " " + date
                         .getFullYear();
                     var listWishes = '<div class="col-md-12"><span>' + data[index].name +
                         '</span> &nbsp;<a href=""><i class="icon-check"></i></a><br><a href=""><i class="icon-clock"></i></a> &nbsp;' +
-                        info_date1 + '&nbsp;<a href=""><i class="icon-calendar"></i></a>&nbsp;' +
+                        info_date1 +
+                        '&nbsp;WITA&nbsp;<a href=""><i class="icon-calendar"></i></a>&nbsp;' +
                         info_date2 + '<br><span>' + data[index].wishes + '</span><br><hr></div>';
                     console.log(listWishes);
                     $('#listWishes').append(listWishes);
@@ -580,6 +586,12 @@
                     $("#name").val("");
                     $("#wishes").val("");
                     console.log("sukses");
+                    listWishes();
+                    Swal.fire(
+                        'Sent!',
+                        'Thanks for your wishes!',
+                        'success'
+                    )
                 },
                 error: function(request) {
                     console.log(request.responseText);
@@ -588,13 +600,29 @@
         }
         // console.log("sendWishes");
     }
+
+    function deleteWishes() {
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('wedding/delete_wishes'); ?>",
+            dataType: "JSON",
+            beforeSend: function() {},
+            cache: false,
+            data: '',
+            success: function(data) {
+                console.log('sukses delete');
+            },
+            error: function(request) {
+                console.log(request.responseText);
+            }
+        });
+
+        // console.log("sendWishes");
+    }
     </script>
 
 </body>
-
-
-
-
 
 
 </html>
